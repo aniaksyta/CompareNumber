@@ -6,7 +6,9 @@ import java.util.Random;
 public class Main {
 
     static int randomNumber = getRandomNumber();
-    public static int getRandomNumber () {
+    static int userNumber;
+
+    public static int getRandomNumber() {
         Random rand = new Random();
         // Setting the upper bound to generate the
         // random numbers in specific range
@@ -16,21 +18,18 @@ public class Main {
         return rand.nextInt(upperbound);
     }
 
-    public static int getUserNumber () throws IOException {
+    public static int getUserNumber() throws IOException {
         InputStreamReader read = new InputStreamReader(System.in);
         BufferedReader in = new BufferedReader(read);
         System.out.print("Enter a number: ");
         return Integer.parseInt(in.readLine());
     }
 
-    public static Boolean compareNumbers () throws IOException {
-        int userNumber;
-        userNumber = getUserNumber();
+    public static Boolean compareNumbers() {
         if (userNumber < randomNumber) {
-            System.out.println("Number is greater than "+ userNumber + ". Guess again");
+            System.out.println("Number is greater than " + userNumber + ". Guess again");
             return false;
-        }
-        if (userNumber > randomNumber) {
+        } else if (userNumber > randomNumber) {
             System.out.println("Number is less than " + userNumber + ". Guess again");
             return false;
         } else {
@@ -44,6 +43,7 @@ public class Main {
         boolean isFinished;
         System.out.println("Hello, let's play a game");
         do {
+            userNumber = getUserNumber();
             isFinished = compareNumbers();
         } while (!isFinished);
 
