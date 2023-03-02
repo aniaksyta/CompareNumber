@@ -1,0 +1,17 @@
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
+target/
+out/
+build/
+bin/
+.gradle/
+.idea/
+*.iml
+
+# Java logs and backups
+*.log
+*.bak
+*.swp
