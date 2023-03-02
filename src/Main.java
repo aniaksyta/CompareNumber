@@ -4,10 +4,6 @@ import java.io.InputStreamReader;
 import java.util.Random;
 
 public class Main {
-
-    static int randomNumber = getRandomNumber();
-    static int userNumber;
-
     public static int getRandomNumber() {
         Random rand = new Random();
         // Setting the upper bound to generate the
@@ -25,7 +21,7 @@ public class Main {
         return Integer.parseInt(in.readLine());
     }
 
-    public static Boolean compareNumbers() {
+    public static Boolean compareNumbers(int userNumber, int randomNumber) {
         if (userNumber < randomNumber) {
             System.out.println("Number is greater than " + userNumber + ". Guess again");
             return false;
@@ -38,15 +34,14 @@ public class Main {
         }
     }
 
-
     public static void main(String[] args) throws IOException {
-        boolean isFinished;
+        int randomNumber;
+        int userNumber;
         System.out.println("Hello, let's play a game");
         do {
             userNumber = getUserNumber();
-            isFinished = compareNumbers();
-        } while (!isFinished);
-
+            randomNumber = getRandomNumber();
+        } while (!compareNumbers(userNumber, randomNumber));
     }
     // Napisz program zgadnij liczbe
     // odczytywac w nieskonczonosc liczny dopoki uzytkownik nie trafi liczby ktora zostala wygenerowana losowo
